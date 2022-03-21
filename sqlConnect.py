@@ -1,3 +1,4 @@
+from itertools import count
 import psycopg2
 def sendToSql(Date, TransactionID):
     hostname = 'localhost'
@@ -27,7 +28,7 @@ def sendToSql(Date, TransactionID):
             cur.close()
         if conn is not None:
             conn.close()
-def getFromSql():
+def getFromSql(id):
     hostname = 'localhost'
     database = 'test'
     username = 'postgres'
@@ -35,6 +36,7 @@ def getFromSql():
     port_id = 5432
      
     try:
+        liste = []
         conn = psycopg2.connect(
                     host = hostname,
                     dbname = database,
@@ -43,11 +45,14 @@ def getFromSql():
                     port = port_id) 
         cur = conn.cursor()
         cur.execute("SELECT * FROM transactions")
+        transaction = cur.fetchall()
         row = cur.fetchone()
-        while row is not None:
-            return(row[1])
-
+    
+        for row in transaction:
+            if row[1] == id:
+                return(row[0], row[1])
         cur.close()
+
     except Exception as error:
         print(error)
     finally:

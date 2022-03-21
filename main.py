@@ -8,18 +8,17 @@ import simplejson
 #f = open('example_2.json')
 #data = json.load(f)
 #data = str(data)
-#print(data)
 
-
-#text ="Hello world"
 #data = data.encode('utf-8').hex()
 #dataSent = []
 
 #postData(data, dataSent)
-#getData(getFromSql())
-s = getData("0x5fc2886e994405ad8f7abda8c1d02cde37e049b423b884e413b6e05a0a3737e3")
+print(getFromSql("0x2556cc9317a0e5167a554910a3eda244e088bd8af337bba3ce8f1b23e7a3d76c"))
 
-sourceFile = open('demo1.json', 'w')
-s = ast.literal_eval(s)
-print('\n' + (json.dumps(s, indent=4)), file = sourceFile)
-sourceFile.close()
+
+
+
+#sourceFile = open('demo2.json', 'w')
+#s = ast.literal_eval(s)
+#print('\n' + (json.dumps(s, indent=4)), file = sourceFile)
+#sourceFile.close()
