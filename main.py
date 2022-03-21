@@ -13,12 +13,15 @@ import simplejson
 #dataSent = []
 
 #postData(data, dataSent)
-print(getFromSql("0x2556cc9317a0e5167a554910a3eda244e088bd8af337bba3ce8f1b23e7a3d76c"))
+
+transactionID = input("Id you want information about")
+s = getData(getFromSql(transactionID)[1])
 
 
 
 
-#sourceFile = open('demo2.json', 'w')
-#s = ast.literal_eval(s)
-#print('\n' + (json.dumps(s, indent=4)), file = sourceFile)
-#sourceFile.close()
+
+sourceFile = open('demo3.json', 'w')
+s = ast.literal_eval(s)
+print('\n' + (json.dumps(s, indent=4)), file = sourceFile)
+sourceFile.close()
