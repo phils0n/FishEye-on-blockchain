@@ -10,4 +10,4 @@ def getData(transactionID):
 
     data = data[2:]
     binary_str = codecs.decode(data, "hex")
-    print(str(binary_str,'utf-8'))
+    return (str(binary_str,'utf-8'))
