@@ -1,9 +1,8 @@
-from fileinput import filename
 import flask
-from flask import request, jsonify, redirect
-import json
+from flask import request, redirect
 from getSmartCon import *
 import ast
+
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -43,6 +42,7 @@ def my_form_post():
     t = "/fish?id=" + text
     return redirect(t, code=302)
 
+
 @app.route('/upload', methods=['POST'])
 def upload():
     #saves submitted files and reads content of file in string format
@@ -53,7 +53,6 @@ def upload():
       contents = file.read()
       dictionary = ast.literal_eval(contents)
       file.close()
-
       id = dictionary["Fish group"]
       s = str(dictionary)
       store(id, s)
