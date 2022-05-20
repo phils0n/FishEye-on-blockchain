@@ -43,9 +43,16 @@ def my_form_post():
     return redirect(t, code=302)
 
 
+
+
+"""
+/upload 
+Read content of uploaded file
+Stores the content of the file on VeChain with id/fish group as the identifier
+Returns the content of the file
+"""
 @app.route('/upload', methods=['POST'])
 def upload():
-    #saves submitted files and reads content of file in string format
    if request.method == 'POST':
       f = request.files['file']
       f.save(f.filename)
@@ -59,7 +66,9 @@ def upload():
       return dictionary
 
 
-
+"""
+Retrieves information based on id in url
+"""
 @app.route('/fish', methods=['GET'])
 def api_id():
     #get json data on fish based on ID
